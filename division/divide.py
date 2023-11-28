@@ -1,2 +1,2 @@
 def divide(a: int, b: int):
-    return a / b
+    return a / b + 1
