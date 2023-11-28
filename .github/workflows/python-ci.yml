@@ -5,11 +5,10 @@ on:
   pull_request:
     branches: [master, main]
 jobs:
-  build-and-run-pytest:
+  run-basic-tests:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Download all the code
+      - name: Get latest code
         uses: actions/checkout@v3
 
       - name: Install python
@@ -17,9 +16,8 @@ jobs:
         with:
           python-version: "3.10"
 
-      - name: Install Dependendies
-        run: |
-          pip install -e .
+      - name: Install all packages
+        run: pip install -e .
 
-      - name: Run tests
+      - name: Run all tests
         run: pytest tests -v
